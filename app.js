@@ -43,7 +43,7 @@ mongoose.connect('mongodb+srv://omarjibria:1234567rowda@crud.dxp15pg.mongodb.net
  const Customer = mongoose.model('Customer' , customerSchema)
 
 
-//  http://localhost:8000/customers2222222222222222222222222222222222222222222222222
+//  http://localhost:8000/customers
 
 
 // Customer  A NEW CUSTOMER
@@ -73,7 +73,7 @@ app.put('/customers/:id', async (req, res) => {
 });
 
 // DELETE a customer
-app.delete('/   s/:id', async (req, res) => {
+app.delete('/customers/:id', async (req, res) => {
     const customer = await Customer.findByIdAndDelete(req.params.id)
     if (!customer) return res.status(404).send('Customer not found');
     res.send(customer).json({massage: "Deleted Succesfully" , status: false})
