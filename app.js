@@ -65,7 +65,7 @@ app.get('/customers/:id', async (req, res) => {
     res.send(customer);
 });
 
-
+// Update Customer
 app.put('/customers/:id', async (req, res) => {
     const customer = await Customer.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true });
     if (!customer) return res.status(404).send('Customer not found');
